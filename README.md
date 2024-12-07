@@ -20,4 +20,4 @@ This is a personal portfolio website built using HTML, CSS, and JavaScript. It s
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/yourusername/portfolio.git
+   https://github.com/jayprakashnair/Portfolio.git
