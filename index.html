@@ -1,756 +1,849 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="author" content="Devcrud">
-        <title>Jayprakash Nair</title>
-        <!-- font icons -->
-        <link rel="stylesheet"
-            href="assets/vendors/themify-icons/css/themify-icons.css">
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-            rel="stylesheet">
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-            rel="stylesheet">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="author" content="Devcrud" />
+    <title>Jayprakash Nair</title>
+    <!-- font icons -->
+    <link
+      rel="stylesheet"
+      href="assets/vendors/themify-icons/css/themify-icons.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
 
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-            rel="stylesheet">
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+      rel="stylesheet"
+    />
 
-        <link rel="icon" type="image/x-icon"
-            href="./assets/imgs/favicon-32x32.png">
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="./assets/imgs/favicon-32x32.png"
+    />
 
-        <!-- Bootstrap + JohnDoe main styles -->
-        <link rel="stylesheet" href="assets/css/johndoe.css">
-        <!-- Bootstrap CSS -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-            rel="stylesheet">
+    <!-- Bootstrap + JohnDoe main styles -->
+    <link rel="stylesheet" href="assets/css/johndoe.css" />
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
 
-        <!-- Bootstrap JS (include Popper.js as well) -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
-
-    </head>
-    <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
-
-        <header class="header">
-            <div class="container">
-                <ul class="social-icons pt-3">
-                    <li class="social-item"><a class="social-link text-light"
-                            href="https://www.linkedin.com/in/jayprakash-nair-8a937a18a/"><i
-                                class="ti-linkedin"
-                                aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link text-light"
-                            href="https://www.instagram.com/darthjay2000/"><i
-                                class="ti-instagram"
-                                aria-hidden="true"></i></a></li>
-                    <li class="social-item"><a class="social-link text-light"
-                            href="https://github.com/jayprakashnair"><i
-                                class="ti-github"
-                                aria-hidden="true"></i></a></li>
-                    <li class="social-item">
-                        <a class="social-link text-light"
-                            href="https://www.researchgate.net/profile/Jayprakash-Nair"
-                            target="_blank">
-                            <i class="fab fa-researchgate"
-                                aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li class="social-item">
-                        <a class="social-link text-light"
-                            href="https://scholar.google.com/citations?user=heZachgAAAAJ&hl=en&authuser=2"
-                            target="_blank">
-                            <i class="fas fa-graduation-cap"
-                                aria-hidden="true"></i>
-                        </a>
-                    </li>
-
-                </ul>
-                <div class="header-content">
-                    <h4 class="header-subtitle">Hello, I am</h4>
-                    <h1 class="header-title">Jayprakash Nair</h1>
-                    <h6 class="header-mono">Researcher | Software Engineer |
-                        Multi-Agent Systems Specialist </h6>
-                    <button onclick="downloadCV()"
-                        class="btn btn-primary btn-rounded"><i
-                            class="ti-printer pr-2"></i>Print Resume</button>
-                </div>
-                <script>
-                    function downloadCV() {
-                        const link = document.createElement('a');
-                        link.href = './assets/pdf/JAYPRAKASH_NAIR_CV.pdf';  // Provide the correct path to your PDF
-                        link.download = 'JAYPRAKASH_NAIR_CV.pdf';  // The name the file will have when downloaded
-                        link.click();  // Trigger the download
-                    }
-                </script>
-            </div>
-        </header>
-        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-white"
-            data-spy="affix" data-offset-top="510">
-            <div class="container">
-                <button class="navbar-toggler ml-auto" type="button"
-                    data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse mt-sm-20 navbar-collapse"
-                    id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a href="#home" class="nav-link">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#about" class="nav-link">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#resume" class="nav-link">Resume</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav brand">
-                        <img src="assets/imgs/avatar.jpg" alt class="brand-img">
-                        <li class="brand-txt">
-                            <h5 class="brand-title">Jayprakash Nair</h5>
-                            <div class="brand-subtitle">Software Engineer |
-                                Researcher</div>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#projects" class="nav-link">Projects</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#publication"
-                                class="nav-link">Publication</a>
-                        </li>
-                        <li class="nav-item last-item">
-                            <a href="#contact" class="nav-link">Contact</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="container-fluid">
-            <div id="about" class="row about-section">
-                <div class="col-lg-4 about-card">
-                    <h3 class="font-weight-light">Who am I ?</h3>
-                    <span class="line mb-5"></span>
-                    <h5 class="mb-3">A Researcher / Student of Mother
-                        Nature</h5>
-                    <p class="mt-20">Aspiring to be a researcher in Multi-Agent
-                        Multi-Robot Systems. My current research focuses on
-                        <b>Autonomous Systems</b>, <b>Federated
-                            Learning</b> and
-                        <b>Swarm Learning, </b>
-                        and
-                        <b>intelligent agent coordination. </b>
-                        I have co-authored two papers on decentralized learning
-                        strategies in
-                        <b>multi-robot environments </b>
-                        using
-                        <b>mobile agents </b>
-                        . With a passion for advancing
-                        <b>multi-agent systems</b>
-                        , I aim to
-                        contribute to innovative
-                        <b>life-long learning </b>
-                        solutions in the realm of robotics.</p>
-                    <button class="btn btn-outline-danger"
-                        onclick="downloadCV()">
-                        <i class="icon-down-circled2"></i> Download My CV
-                    </button>
-
-                    <script>
-                        function downloadCV() {
-                            const link = document.createElement('a');
-                            link.href = './assets/pdf/JAYPRAKASH_NAIR_CV.pdf';  // Provide the correct path to your PDF
-                            link.download = 'JAYPRAKASH_NAIR_CV.pdf';  // The name the file will have when downloaded
-                            link.click();  // Trigger the download
-                        }
-                    </script>
-                </div>
-                <div class="col-lg-4 about-card">
-                    <h3 class="font-weight-light">Personal Info</h3>
-                    <span class="line mb-5"></span>
-                    <ul class="mt40 info list-unstyled">
-                        <li><span>Birthdate</span> : 07/10/2000</li>
-                        <li><span>Email</span> :
-                            jayprakash_24a02res06@iitp.ac.in</li>
-                        <li><span>Phone</span> : (+91) 8011223141</li>
-                        <li><span>Address</span> : Qtr#F-15,
-                            Indian Institute of Technology Guwahati,
-                            Assam, India.</li>
-                    </ul>
-                    <ul class="social-icons pt-3">
-                        <li class="social-item">
-                            <a class="social-link"
-                                href="https://twitter.com/YourTwitterHandle">
-                                <i class="ti-twitter" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="social-item">
-                            <a class="social-link"
-                                href="https://scholar.google.com/citations?user=heZachgAAAAJ&hl=en&authuser=2"
-                                target="_blank">
-                                <i class="fas fa-graduation-cap"
-                                    aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="social-item">
-                            <a class="social-link"
-                                href="https://www.instagram.com/darthjay2000/">
-                                <i class="ti-instagram" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="social-item">
-                            <a class="social-link"
-                                href="https://github.com/jayprakashnair">
-                                <i class="ti-github" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li class="social-item">
-                            <a class="social-link"
-                                href="https://www.researchgate.net/profile/Jayprakash-Nair"
-                                target="_blank">
-                                <i class="fab fa-researchgate"
-                                    aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="col-lg-4 about-card">
-                    <h3 class="font-weight-light">My Expertise</h3>
-                    <span class="line mb-5"></span>
-                    <div class="row">
-                        <div class="col-1 text-danger pt-1"><i
-                                class="fas fa-robot icon-lg"></i></div>
-                        <div class="col-10 ml-auto mr-3">
-                            <h6>Reinforcement Learning in Multi-Agent
-                                Systems</h6>
-                            <p class="subtitle">Expert in designing and
-                                implementing algorithms like Q-learning and
-                                SARSA for robotics and autonomous systems.</p>
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-1 text-danger pt-1"><i
-                                class="fas fa-cogs icon-lg"></i></div>
-                        <div class="col-10 ml-auto mr-3">
-                            <h6>Robotic Simulation and Decentralized
-                                Systems</h6>
-                            <p class="subtitle">Proficient in platforms like
-                                Webots and Tartarus for developing decentralized
-                                federated learning frameworks.</p>
-                            <hr>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-1 text-danger pt-1"><i
-                                class="fas fa-laptop-code icon-lg"></i></div>
-                        <div class="col-10 ml-auto mr-3">
-                            <h6>Software Development and Real-World Problem
-                                Solving</h6>
-                            <p class="subtitle">Extensive experience in creating
-                                scalable and efficient solutions for real-world
-                                problems, including middleware integrations and
-                                e-commerce platforms.</p>
-                            <hr>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Bootstrap JS (include Popper.js as well) -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+    <header class="header">
+      <div class="container">
+        <ul class="social-icons pt-3">
+          <li class="social-item">
+            <a
+              class="social-link text-light"
+              href="https://www.linkedin.com/in/jayprakash-nair-8a937a18a/"
+              ><i class="ti-linkedin" aria-hidden="true"></i
+            ></a>
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link text-light"
+              href="https://www.instagram.com/darthjay2000/"
+              ><i class="ti-instagram" aria-hidden="true"></i
+            ></a>
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link text-light"
+              href="https://github.com/jayprakashnair"
+              ><i class="ti-github" aria-hidden="true"></i
+            ></a>
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link text-light"
+              href="https://www.researchgate.net/profile/Jayprakash-Nair"
+              target="_blank"
+            >
+              <i class="fab fa-researchgate" aria-hidden="true"></i>
+            </a>
+          </li>
+          <li class="social-item">
+            <a
+              class="social-link text-light"
+              href="https://scholar.google.com/citations?user=heZachgAAAAJ&hl=en&authuser=2"
+              target="_blank"
+            >
+              <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+            </a>
+          </li>
+        </ul>
+        <div class="header-content">
+          <h4 class="header-subtitle">Hello, I am</h4>
+          <h1 class="header-title">Jayprakash Nair</h1>
+          <h6 class="header-mono">
+            Researcher | Software Engineer | Multi-Agent Systems Specialist
+          </h6>
+          <button onclick="downloadCV()" class="btn btn-primary btn-rounded">
+            <i class="ti-printer pr-2"></i>Print Resume
+          </button>
         </div>
+        <script>
+          function downloadCV() {
+            const link = document.createElement("a");
+            link.href = "./assets/pdf/JAYPRAKASH_NAIR_CV.pdf"; // Provide the correct path to your PDF
+            link.download = "JAYPRAKASH_NAIR_CV.pdf"; // The name the file will have when downloaded
+            link.click(); // Trigger the download
+          }
+        </script>
+      </div>
+    </header>
+    <nav
+      class="navbar sticky-top navbar-expand-lg navbar-light bg-white"
+      data-spy="affix"
+      data-offset-top="510"
+    >
+      <div class="container">
+        <button
+          class="navbar-toggler ml-auto"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse mt-sm-20 navbar-collapse"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a href="#home" class="nav-link">Home</a>
+            </li>
+            <li class="nav-item">
+              <a href="#about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+              <a href="#resume" class="nav-link">Resume</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav brand">
+            <img src="assets/imgs/avatar.jpg" alt class="brand-img" />
+            <li class="brand-txt">
+              <h5 class="brand-title">Jayprakash Nair</h5>
+              <div class="brand-subtitle">Software Engineer | Researcher</div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a href="#projects" class="nav-link">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a href="#publication" class="nav-link">Publication</a>
+            </li>
+            <li class="nav-item last-item">
+              <a href="#contact" class="nav-link">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+      <div id="about" class="row about-section">
+        <div class="col-lg-4 about-card">
+          <h3 class="font-weight-light">Who am I ?</h3>
+          <span class="line mb-5"></span>
+          <h5 class="mb-3">A Researcher / Student of Mother Nature</h5>
+          <p class="mt-20">
+            Aspiring to be a researcher in Multi-Agent Multi-Robot Systems. My
+            current research focuses on <b>Autonomous Systems</b>,
+            <b>Federated Learning</b> and
+            <b>Swarm Learning, </b>
+            and
+            <b>intelligent agent coordination. </b>
+            I have co-authored two papers on decentralized learning strategies
+            in
+            <b>multi-robot environments </b>
+            using
+            <b>mobile agents </b>
+            . With a passion for advancing
+            <b>multi-agent systems</b>
+            , I aim to contribute to innovative
+            <b>life-long learning </b>
+            solutions in the realm of robotics.
+          </p>
+          <button class="btn btn-outline-danger" onclick="downloadCV()">
+            <i class="icon-down-circled2"></i> Download My CV
+          </button>
 
-        <!--Resume Section-->
-        <section class="section" id="resume">
-            <div class="container">
-                <h2 class="mb-5"><span class="text-danger">My</span> Resume</h2>
-                <div class="row">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="mt-2">
-                                    <h4>Experience</h4>
-                                    <span class="line"></span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h9 class="text-danger">2022 – 2024</h9>
-                                <h7>
-                                    <p class="title"><strong>Software
-                                            Engineer</strong>
-                                        <br>
-                                        (People10 Technologies Inc.)
-                                    </p>
-                                </h7>
-                                <ul class="subtitle">
-                                    <li>Developed e-commerce features for
-                                        Allegiant Air (GraphQL, pricing,
-                                        bundles, bookings)</li>
-                                    <li>Implemented QA automation scripts</li>
-                                    <li>Managed event logistics and participant
-                                        activities for Code Combat
-                                        (Hackathon)</li>
-                                </ul>
-                                <hr>
-                                <h8 class="text-danger">2019</h8>
-                                <h9>
-                                    <p class="title"><strong>Research
-                                            Intern</strong>
-                                        <br>
-                                        Indian Institute of Technology
-                                        Guwahati</p>
-                                </h9>
-                                <ul class="subtitle">
-                                    <li>Learnt to control robots within Webots
-                                        using Python</li>
-                                    <li>Programmed mobile agents using Tartarus,
-                                        a multi-mobile agent platform</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="mt-2">
-                                    <h4>Education</h4>
-                                    <span class="line"></span>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h6 class=" text-danger">30/07/2024 –
-                                    Current</h6>
-                                <p class="title"><strong>M.Tech. in Artificial
-                                        Intelligence and Data Science</strong>
-                                    <br>
-                                    Indian Institute of Technology Patna (IIT
-                                    Patna), Patna, India</p>
-                                <p class="subtitle">
-                                    Website: <a href="https://www.iitp.ac.in/"
-                                        target="_blank">www.iitp.ac.in</a><br>
-                                    Level in EQF: Level 7
-                                </p>
-                                <hr>
-                                <h6 class=" text-danger">30/07/2018 –
-                                    30/06/2022</h6>
-                                <p class="title"><strong>B.Tech. in Computer
-                                        Science and Engineering</strong>
-                                    <br>
-                                    APJ
-                                    Abdul Kalam Technological University,
-                                    Thiruvananthapuram, India</p>
-                                <p class="subtitle">
-                                    Website: <a href="https://ktu.edu.in/"
-                                        target="_blank">ktu.edu.in</a><br>
-                                    Level in EQF: Level 6
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-4">
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="pull-left">
-                                    <h4 class="mt-2">Programming Languages</h4>
-                                    <span class="line"></span>
-                                </div>
-                            </div>
-                            <div class="card-body pb-2">
-                                <h6>Python 3</h6>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-danger"
-                                        role="progressbar" style="width: 75%"
-                                        aria-valuenow="25" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                </div>
-                                <h6>JavaScript</h6>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-danger"
-                                        role="progressbar" style="width: 50%"
-                                        aria-valuenow="25" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                </div>
-                                <h6>PHP</h6>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-danger"
-                                        role="progressbar" style="width: 65%"
-                                        aria-valuenow="50" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                </div>
-                                <h6>C and C++</h6>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-danger"
-                                        role="progressbar" style="width: 65%"
-                                        aria-valuenow="75" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                </div>
-                                <h6>LaTex</h6>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-danger"
-                                        role="progressbar" style="width: 75%"
-                                        aria-valuenow="75" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="pull-left">
-                                    <h4 class="mt-2">Languages</h4>
-                                    <span class="line"></span>
-                                </div>
-                            </div>
-                            <div class="card-body pb-2">
-                                <h6>English</h6>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-danger"
-                                        role="progressbar" style="width: 85%"
-                                        aria-valuenow="25" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                </div>
-                                <h6>Hindi</h6>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-danger"
-                                        role="progressbar" style="width: 80%"
-                                        aria-valuenow="25" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                </div>
-                                <h6>Malayalam</h6>
-                                <div class="progress mb-3">
-                                    <div class="progress-bar bg-danger"
-                                        role="progressbar" style="width: 67%"
-                                        aria-valuenow="50" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <script>
+            function downloadCV() {
+              const link = document.createElement("a");
+              link.href = "./assets/pdf/JAYPRAKASH_NAIR_CV.pdf"; // Provide the correct path to your PDF
+              link.download = "JAYPRAKASH_NAIR_CV.pdf"; // The name the file will have when downloaded
+              link.click(); // Trigger the download
+            }
+          </script>
+        </div>
+        <div class="col-lg-4 about-card">
+          <h3 class="font-weight-light">Personal Info</h3>
+          <span class="line mb-5"></span>
+          <ul class="mt40 info list-unstyled">
+            <li><span>Birthdate</span> : 07/10/2000</li>
+            <li><span>Email</span> : jayprakash_24a02res06@iitp.ac.in</li>
+            <li><span>Phone</span> : (+91) 8011223141</li>
+            <li>
+              <span>Address</span> : Qtr#F-15, Indian Institute of Technology
+              Guwahati, Assam, India.
+            </li>
+          </ul>
+          <ul class="social-icons pt-3">
+            <li class="social-item">
+              <a
+                class="social-link"
+                href="https://twitter.com/YourTwitterHandle"
+              >
+                <i class="ti-twitter" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="social-item">
+              <a
+                class="social-link"
+                href="https://scholar.google.com/citations?user=heZachgAAAAJ&hl=en&authuser=2"
+                target="_blank"
+              >
+                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="social-item">
+              <a
+                class="social-link"
+                href="https://www.instagram.com/darthjay2000/"
+              >
+                <i class="ti-instagram" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="social-item">
+              <a class="social-link" href="https://github.com/jayprakashnair">
+                <i class="ti-github" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li class="social-item">
+              <a
+                class="social-link"
+                href="https://www.researchgate.net/profile/Jayprakash-Nair"
+                target="_blank"
+              >
+                <i class="fab fa-researchgate" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-4 about-card">
+          <h3 class="font-weight-light">My Expertise</h3>
+          <span class="line mb-5"></span>
+          <div class="row">
+            <div class="col-1 text-danger pt-1">
+              <i class="fas fa-robot icon-lg"></i>
             </div>
-        </section>
-
-        <section class="section" id="projects">
-            <div class="container">
-                <h2 class="mb-5 pb-4"><span class="text-danger">My</span>
-                    Projects</h2>
-                <link
-                    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-                    rel="stylesheet">
-                <div class="container bootstrap snippets bootdey">
-                    <div class="row">
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="wp-block product">
-                                <figure>
-                                    <img alt
-                                        src="assets/imgs/image copy 4.png"
-                                        class="img-responsive img-center">
-                                </figure>
-                                <h2 class="product-title"><a
-                                        href="https://www.allegiantair.com/">Allegiant
-                                        Air
-                                        Navitaire Initiative (at People10
-                                        Technologies)
-                                    </a></h2>
-                                <p>
-                                    Contributed extensively to UI enhancement in
-                                    the Navitaire Initiative of the Allegiant
-                                    Air project by leveraging PHP and GraphQL.
-                                    Developed a GraphQL mutation to enable
-                                    seamless session resets within the
-                                    post-booking middleware and managed shopping
-                                    cart pricing updates as part of the Change
-                                    City Pair initiative. Additionally,
-                                    implemented automation projects to
-                                    streamline QA processes, ensuring efficient
-                                    and reliable software delivery.
-                                </p>
-
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="wp-block product">
-                                <figure>
-                                    <img alt
-                                        src="assets/imgs/image copy.png"
-                                        class="img-responsive img-center">
-                                </figure>
-                                <h2 class="product-title"><a
-                                        href="https://ieeexplore.ieee.org/abstract/document/9932985/">On
-                                        Decentralizing
-                                        Federated Reinforcement Learning in
-                                        Multi-Robot Scenarios (Bachelor’s
-                                        Project)
-                                    </a></h2>
-                                <p>
-                                    Realized Decentralized Federated RL (Q- &
-                                    SARSA) for robots running on multiple
-                                    instantiations of Webots running on
-                                    dierent PCs connected via the LAN, using
-                                    mobile agents
-                                </p>
-
-                            </div>
-                        </div>
-
-                        <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="wp-block product">
-                                <figure>
-                                    <img alt
-                                        src="assets/imgs/Workspace 1_001.png"
-                                        class="img-responsive img-center">
-                                </figure>
-                                <h2 class="product-title"><a
-                                        href="https://github.com/jayprakashnair/webots-projects">RL
-                                        for e-puck
-                                        within Webots
-                                    </a></h2>
-                                <p>
-                                    I coded reinforcement learning (RL)
-                                    controllers based on Q-learning and SARSA
-                                    algorithms for robots within the Webots
-                                    simulation environment. Additionally, I
-                                    analyzed and compared the performance of
-                                    these RL controllers to evaluate their
-                                    effectiveness in different scenarios.
-                                </p>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="col-10 ml-auto mr-3">
+              <h6>Reinforcement Learning in Multi-Agent Systems</h6>
+              <p class="subtitle">
+                Expert in designing and implementing algorithms like Q-learning
+                and SARSA for robotics and autonomous systems.
+              </p>
+              <hr />
             </div>
-        </section>
+          </div>
+          <div class="row">
+            <div class="col-1 text-danger pt-1">
+              <i class="fas fa-cogs icon-lg"></i>
+            </div>
+            <div class="col-10 ml-auto mr-3">
+              <h6>Robotic Simulation and Decentralized Systems</h6>
+              <p class="subtitle">
+                Proficient in platforms like Webots and Tartarus for developing
+                decentralized federated learning frameworks.
+              </p>
+              <hr />
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-1 text-danger pt-1">
+              <i class="fas fa-laptop-code icon-lg"></i>
+            </div>
+            <div class="col-10 ml-auto mr-3">
+              <h6>Software Development and Real-World Problem Solving</h6>
+              <p class="subtitle">
+                Extensive experience in creating scalable and efficient
+                solutions for real-world problems, including middleware
+                integrations and e-commerce platforms.
+              </p>
+              <hr />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <section class="section" id="publication">
-            <div class="container">
-                <h2 class="mb-5">My <span
-                        class="text-danger">Publications</span></h2>
-                <div class="row">
-                    <div class="blog-card">
-                        <div class="img-holder">
-                            <img src="assets/imgs/image copy 5.png"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        </div>
-                        <div class="content-holder">
-                            <h6 class="title">A Hybrid Federated Reinforcement
-                                Learning Approach for Networked Robots
-                            </h6>
+    <!--Resume Section-->
+    <section class="section" id="resume">
+      <div class="container">
+        <h2 class="mb-5"><span class="text-danger">My</span> Resume</h2>
+        <div class="row">
+          <div class="col-md-6 col-lg-4">
+            <div class="card">
+              <div class="card-header">
+                <div class="mt-2">
+                  <h4>Experience</h4>
+                  <span class="line"></span>
+                </div>
+              </div>
+              <div class="card-body">
+                <h9 class="text-danger">2022 – 2024</h9>
+                <h7>
+                  <p class="title">
+                    <strong>Software Engineer</strong>
+                    <br />
+                    (People10 Technologies Inc.)
+                  </p>
+                </h7>
+                <ul class="subtitle">
+                  <li>
+                    Developed e-commerce features for Allegiant Air (GraphQL,
+                    pricing, bundles, bookings)
+                  </li>
+                  <li>Implemented QA automation scripts</li>
+                  <li>
+                    Managed event logistics and participant activities for Code
+                    Combat (Hackathon)
+                  </li>
+                </ul>
+                <hr />
+                <h8 class="text-danger">2019</h8>
+                <h9>
+                  <p class="title">
+                    <strong>Research Intern</strong>
+                    <br />
+                    Indian Institute of Technology Guwahati
+                  </p>
+                </h9>
+                <ul class="subtitle">
+                  <li>Learnt to control robots within Webots using Python</li>
+                  <li>
+                    Programmed mobile agents using Tartarus, a multi-mobile
+                    agent platform
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
-                            <p class="post-details">
-                                <a>
-                                    <b>Authors:</b>
-                                    G.Rangu, D.D. Kulkarni, J.S.Nair, S.B.Nair
+          <div class="col-md-6 col-lg-4">
+            <div class="card">
+              <div class="card-header">
+                <div class="mt-2">
+                  <h4>Education</h4>
+                  <span class="line"></span>
+                </div>
+              </div>
+              <div class="card-body">
+                <h6 class="text-danger">30/07/2024 – Current</h6>
+                <p class="title">
+                  <strong
+                    >M.Tech. in Artificial Intelligence and Data Science</strong
+                  >
+                  <br />
+                  Indian Institute of Technology Patna (IIT Patna), Patna, India
+                </p>
+                <p class="subtitle">
+                  Website:
+                  <a href="https://www.iitp.ac.in/" target="_blank"
+                    >www.iitp.ac.in</a
+                  ><br />
+                  Level in EQF: Level 7
+                </p>
+                <hr />
+                <h6 class="text-danger">30/07/2018 – 30/06/2022</h6>
+                <p class="title">
+                  <strong>B.Tech. in Computer Science and Engineering</strong>
+                  <br />
+                  APJ Abdul Kalam Technological University, Thiruvananthapuram,
+                  India
+                </p>
+                <p class="subtitle">
+                  Website:
+                  <a href="https://ktu.edu.in/" target="_blank">ktu.edu.in</a
+                  ><br />
+                  Level in EQF: Level 6
+                </p>
+              </div>
+            </div>
+          </div>
 
-                                </a>
-                                <a
-                                    href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=heZachgAAAAJ&authuser=2&citation_for_view=heZachgAAAAJ:u5HHmVD_uO8C"
-                                    target="_blank">
-                                    <i
-                                        class="bi bi-file-earmark-text text-primary"></i>
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-header">
+                <div class="pull-left">
+                  <h4 class="mt-2">Programming Languages</h4>
+                  <span class="line"></span>
+                </div>
+              </div>
+              <div class="card-body pb-2">
+                <h6>Python 3</h6>
+                <div class="progress mb-3">
+                  <div
+                    class="progress-bar bg-danger"
+                    role="progressbar"
+                    style="width: 75%"
+                    aria-valuenow="25"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <h6>JavaScript</h6>
+                <div class="progress mb-3">
+                  <div
+                    class="progress-bar bg-danger"
+                    role="progressbar"
+                    style="width: 50%"
+                    aria-valuenow="25"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <h6>PHP</h6>
+                <div class="progress mb-3">
+                  <div
+                    class="progress-bar bg-danger"
+                    role="progressbar"
+                    style="width: 65%"
+                    aria-valuenow="50"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <h6>C and C++</h6>
+                <div class="progress mb-3">
+                  <div
+                    class="progress-bar bg-danger"
+                    role="progressbar"
+                    style="width: 65%"
+                    aria-valuenow="75"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <h6>LaTex</h6>
+                <div class="progress mb-3">
+                  <div
+                    class="progress-bar bg-danger"
+                    role="progressbar"
+                    style="width: 75%"
+                    aria-valuenow="75"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header">
+                <div class="pull-left">
+                  <h4 class="mt-2">Languages</h4>
+                  <span class="line"></span>
+                </div>
+              </div>
+              <div class="card-body pb-2">
+                <h6>English</h6>
+                <div class="progress mb-3">
+                  <div
+                    class="progress-bar bg-danger"
+                    role="progressbar"
+                    style="width: 85%"
+                    aria-valuenow="25"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <h6>Hindi</h6>
+                <div class="progress mb-3">
+                  <div
+                    class="progress-bar bg-danger"
+                    role="progressbar"
+                    style="width: 80%"
+                    aria-valuenow="25"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+                <h6>Malayalam</h6>
+                <div class="progress mb-3">
+                  <div
+                    class="progress-bar bg-danger"
+                    role="progressbar"
+                    style="width: 67%"
+                    aria-valuenow="50"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                                    2</a>
-                            </p>
+    <section class="section" id="projects">
+      <div class="container">
+        <h2 class="mb-5 pb-4"><span class="text-danger">My</span> Projects</h2>
+        <link
+          href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+          rel="stylesheet"
+        />
+        <div class="container bootstrap snippets bootdey">
+          <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="wp-block product">
+                <figure>
+                  <img
+                    alt
+                    src="assets/imgs/image copy 4.png"
+                    class="img-responsive img-center"
+                  />
+                </figure>
+                <h2 class="product-title">
+                  <a href="https://www.allegiantair.com/"
+                    >Allegiant Air Navitaire Initiative (at People10
+                    Technologies)
+                  </a>
+                </h2>
+                <p>
+                  Contributed extensively to UI enhancement in the Navitaire
+                  Initiative of the Allegiant Air project by leveraging PHP and
+                  GraphQL. Developed a GraphQL mutation to enable seamless
+                  session resets within the post-booking middleware and managed
+                  shopping cart pricing updates as part of the Change City Pair
+                  initiative. Additionally, implemented automation projects to
+                  streamline QA processes, ensuring efficient and reliable
+                  software delivery.
+                </p>
+              </div>
+            </div>
 
-                            <p><b> In: Swain, B.P., Dixit, U.S. (eds) Recent
-                                    Advances in Electrical and Electronic
-                                    Engineering. ICSTE 2023. Lecture Notes in
-                                    Electrical
-                                    Engineering, vol 1071. Springer,
-                                    Singapore.</b></p>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="wp-block product">
+                <figure>
+                  <img
+                    alt
+                    src="assets/imgs/image copy.png"
+                    class="img-responsive img-center"
+                  />
+                </figure>
+                <h2 class="product-title">
+                  <a
+                    href="https://ieeexplore.ieee.org/abstract/document/9932985/"
+                    >On Decentralizing Federated Reinforcement Learning in
+                    Multi-Robot Scenarios (Bachelor’s Project)
+                  </a>
+                </h2>
+                <p>
+                  Realized Decentralized Federated RL (Q- & SARSA) for robots
+                  running on multiple instantiations of Webots running on
+                  dierent PCs connected via the LAN, using mobile agents
+                </p>
+              </div>
+            </div>
 
-                            <p>Federated Learning (FL) ensures data privacy by
-                                aggregating local models instead of raw data at
-                                a central server. However,
-                                centralized FL risks failures due to server or
-                                network issues, while decentralized FL avoids
-                                this but increases learning time. This
-                                paper introduces Hybrid Federated Reinforcement
-                                Learning (HyFRL), a mobile agent-based approach
-                                combining centralized and
-                                decentralized methods for networked robotics.
-                                Using Webots, an open-source robot simulator,
-                                multi-robot experiments
-                                demonstrate HyFRL’s eectiveness in aggregating
-                                and sharing Q-tables across connected robots,
-                                outperforming both centralized
-                                and decentralized FL approaches.</p>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <div class="wp-block product">
+                <figure>
+                  <img
+                    alt
+                    src="assets/imgs/Workspace 1_001.png"
+                    class="img-responsive img-center"
+                  />
+                </figure>
+                <h2 class="product-title">
+                  <a href="https://github.com/jayprakashnair/webots-projects"
+                    >RL for e-puck within Webots
+                  </a>
+                </h2>
+                <p>
+                  I coded reinforcement learning (RL) controllers based on
+                  Q-learning and SARSA algorithms for robots within the Webots
+                  simulation environment. Additionally, I analyzed and compared
+                  the performance of these RL controllers to evaluate their
+                  effectiveness in different scenarios.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-                            <a
-                                href="https://link.springer.com/chapter/10.1007/978-981-99-4713-3_47"
+    <section class="section" id="publication">
+      <div class="container">
+        <h2 class="mb-5">My <span class="text-danger">Publications</span></h2>
+        <div class="row">
+          <div class="blog-card">
+            <div class="img-holder">
+              <img
+                src="assets/imgs/image copy 5.png"
+                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+              />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">
+                A Hybrid Federated Reinforcement Learning Approach for Networked
+                Robots
+              </h6>
+
+              <p class="post-details">
+                <a>
+                  <b>Authors:</b>
+                  G.Rangu, D.D. Kulkarni, J.S.Nair, S.B.Nair
+                </a>
+                <a
+                  href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=heZachgAAAAJ&authuser=2&citation_for_view=heZachgAAAAJ:u5HHmVD_uO8C"
+                  target="_blank"
+                >
+                  <i class="bi bi-file-earmark-text text-primary"></i>
+
+                  2</a
+                >
+              </p>
+
+              <p>
+                <b>
+                  In: Swain, B.P., Dixit, U.S. (eds) Recent Advances in
+                  Electrical and Electronic Engineering. ICSTE 2023. Lecture
+                  Notes in Electrical Engineering, vol 1071. Springer,
+                  Singapore.</b
+                >
+              </p>
+
+              <p>
+                Federated Learning (FL) ensures data privacy by aggregating
+                local models instead of raw data at a central server. However,
+                centralized FL risks failures due to server or network issues,
+                while decentralized FL avoids this but increases learning time.
+                This paper introduces Hybrid Federated Reinforcement Learning
+                (HyFRL), a mobile agent-based approach combining centralized and
+                decentralized methods for networked robotics. Using Webots, an
+                open-source robot simulator, multi-robot experiments demonstrate
+                HyFRL’s eectiveness in aggregating and sharing Q-tables across
+                connected robots, outperforming both centralized and
+                decentralized FL approaches.
+              </p>
+
+              <a
+                href="https://link.springer.com/chapter/10.1007/978-981-99-4713-3_47"
+                class="read-more"
+                target="_blank"
+                >Read more <i class="ti-angle-double-right"></i
+              ></a>
               <a
               href="./assets/pdf/On_Decentralizing_Federated_Reinforcement_Learning_in_Multi-Robot_Scenarios.pdf"
               class="read-more"
               target="_blank"
               >Github Page for free copy <i class="ti-angle-double-right"></i
             ></a>
-                        </div>
-                    </div><!-- end of blog wrapper -->
+            </div>
+          </div>
+          <!-- end of blog wrapper -->
 
-                    <div class="blog-card">
-                        <div class="img-holder">
-                            <img src="assets/imgs/13.png"
-                                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        </div>
-                        <div class="content-holder">
-                            <h6 class="title">On Decentralizing Federated
-                                Reinforcement Learning in Multi-Robot Scenarios
+          <div class="blog-card">
+            <div class="img-holder">
+              <img
+                src="assets/imgs/13.png"
+                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+              />
+            </div>
+            <div class="content-holder">
+              <h6 class="title">
+                On Decentralizing Federated Reinforcement Learning in
+                Multi-Robot Scenarios
+              </h6>
 
-                            </h6>
+              <p class="post-details">
+                <a>
+                  <b>Authors:</b>
+                  JS Nair, DD Kulkarni, A Joshi, S Suresh
+                </a>
+                <a
+                  href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=heZachgAAAAJ&authuser=2&citation_for_view=heZachgAAAAJ:u-x6o8ySG0sC"
+                  target="_blank"
+                >
+                  <i class="bi bi-file-earmark-text text-primary"></i>
 
-                            <p class="post-details">
-                                <a>
-                                    <b>Authors:</b>
-                                    JS Nair, DD Kulkarni, A Joshi, S Suresh
-                                </a>
-                                <a
-                                    href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=heZachgAAAAJ&authuser=2&citation_for_view=heZachgAAAAJ:u-x6o8ySG0sC"
-                                    target="_blank">
-                                    <i
-                                        class="bi bi-file-earmark-text text-primary"></i>
+                  9</a
+                >
+              </p>
 
-                                    9</a>
-                            </p>
+              <p>
+                <b>
+                  2022 7th South-East Europe Design Automation, Computer
+                  Engineering, Computer Networks and Social Media Conference
+                  (SEEDA-CECNSM)</b
+                >
+              </p>
 
-                            <p><b> 2022 7th South-East Europe Design Automation,
-                                    Computer Engineering, Computer Networks and
-                                    Social Media Conference
-                                    (SEEDA-CECNSM)</b></p>
+              <p>
+                This paper presents a mobile agent-based approach to
+                Decentralized Federated Learning (FL) in multi-robot systems,
+                addressing challenges like central node failure and bandwidth
+                bottlenecks. Using Webots, an open-source robot simulator, and
+                Tartarus, a mobile agent platform, we demonstrate how mobile
+                agents enable Decentralized Federated Reinforcement Learning
+                (dFRL). Experiments with Q-learning and SARSA show the viability
+                of aggregating Q-tables across connected robots without central
+                control. The proposed framework is adaptable to other learning
+                algorithms and real robots, oering a versatile tool for studying
+                decentralized FL in heterogeneous multi-robot systems.
+              </p>
 
-                            <p>This paper presents a mobile agent-based approach
-                                to Decentralized Federated Learning (FL) in
-                                multi-robot systems, addressing
-                                challenges like central node failure and
-                                bandwidth bottlenecks. Using Webots, an
-                                open-source robot simulator, and Tartarus, a
-                                mobile agent platform, we demonstrate how mobile
-                                agents enable Decentralized Federated
-                                Reinforcement Learning (dFRL).
-                                Experiments with Q-learning and SARSA show the
-                                viability of aggregating Q-tables across
-                                connected robots without central control.
-                                The proposed framework is adaptable to other
-                                learning algorithms and real robots, oering a
-                                versatile tool for studying
-                                decentralized FL in heterogeneous multi-robot
-                                systems.</p>
+              <a
+                href="https://ieeexplore.ieee.org/document/9932985"
+                class="read-more"
+                target="_blank"
+                >Read more <i class="ti-angle-double-right"></i
+              ></a>
 
-                            <a
-                                href="https://ieeexplore.ieee.org/document/9932985"
               <a
                 href="./assets/pdf/A_Hybrid_Federated_Reinforcement_Learning_Approach_for_Networked_Robots.pdf"
                 class="read-more"
                 target="_blank"
                 >Github Page for free copy <i class="ti-angle-double-right"></i
               ></a>
-                        </div>
-                    </div><!-- end of blog wrapper -->
-
-                </div>
             </div>
-        </section>
-
-        <div class="section contact" id="contact">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <div class="contact-form-card">
-                            <h4 class="contact-title">Send a message</h4>
-
-                            <iframe
-                                src="https://docs.google.com/forms/d/e/1FAIpQLSfZ2ClxcesVZnp6XAsJyX72P7dJX8hyEHGdlMua2hthZ0-TMw/viewform?embedded=true"
-                                width="640" height="480" frameborder="0"
-                                marginheight="0" marginwidth="0">
-                                Loading…
-                            </iframe>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="contact-info-card">
-                            <h4 class="contact-title">Get in touch</h4>
-                            <div class="row mb-2">
-                                <div class="col-1 pt-1 mr-1">
-                                    <i class="ti-mobile icon-md"></i>
-                                </div>
-                                <div class="col-10 ">
-                                    <h6 class="d-inline">Phone : <br> <span
-                                            class="text-muted">(+91)
-                                            8011223141</span></h6>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-1 pt-1 mr-1">
-                                    <i class="ti-map-alt icon-md"></i>
-                                </div>
-                                <div class="col-10">
-                                    <h6 class="d-inline">Address :<br> <span
-                                            class="text-muted">Qtr#F-15,
-                                            Indian Institute of Technology
-                                            Guwahati,
-                                            Assam, India.</span></h6>
-                                </div>
-                            </div>
-                            <div class="row mb-2">
-                                <div class="col-1 pt-1 mr-1">
-                                    <i class="ti-envelope icon-md"></i>
-                                </div>
-                                <div class="col-10">
-                                    <h6 class="d-inline">Email :<br> <span
-                                            class="text-muted">jayprakash_24a02res06@iitp.ac.in</span></h6>
-                                </div>
-                            </div>
-                            <ul class="social-icons pt-4">
-                                <li class="social-item"><a
-                                        class="social-link text-dark"
-                                        href="https://x.com/jsnair2000"><i
-                                            class="ti-twitter"
-                                            aria-hidden="true"></i></a></li>
-                                <li class="social-item"><a
-                                        class="social-link text-dark"
-                                        href="#"><i class="ti-google"
-                                            aria-hidden="true"></i></a></li>
-                                <li class="social-item"><a
-                                        class="social-link text-dark"
-                                        href="https://www.instagram.com/darthjay2000/"><i
-                                            class="ti-instagram"
-                                            aria-hidden="true"></i></a></li>
-                                <li class="social-item"><a
-                                        class="social-link text-light"
-                                        href="https://www.linkedin.com/in/jayprakash-nair-8a937a18a/"><i
-                                            class="ti-linkedin"
-                                            aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
+          </div>
+          <!-- end of blog wrapper -->
         </div>
+      </div>
+    </section>
 
-        <!-- core  -->
-        <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-        <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    <div class="section contact" id="contact">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="contact-form-card">
+              <h4 class="contact-title">Send a message</h4>
 
-        <!-- bootstrap 3 affix -->
-        <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+              <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfZ2ClxcesVZnp6XAsJyX72P7dJX8hyEHGdlMua2hthZ0-TMw/viewform?embedded=true"
+                width="640"
+                height="480"
+                frameborder="0"
+                marginheight="0"
+                marginwidth="0"
+              >
+                Loading…
+              </iframe>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="contact-info-card">
+              <h4 class="contact-title">Get in touch</h4>
+              <div class="row mb-2">
+                <div class="col-1 pt-1 mr-1">
+                  <i class="ti-mobile icon-md"></i>
+                </div>
+                <div class="col-10">
+                  <h6 class="d-inline">
+                    Phone : <br />
+                    <span class="text-muted">(+91) 8011223141</span>
+                  </h6>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-1 pt-1 mr-1">
+                  <i class="ti-map-alt icon-md"></i>
+                </div>
+                <div class="col-10">
+                  <h6 class="d-inline">
+                    Address :<br />
+                    <span class="text-muted"
+                      >Qtr#F-15, Indian Institute of Technology Guwahati, Assam,
+                      India.</span
+                    >
+                  </h6>
+                </div>
+              </div>
+              <div class="row mb-2">
+                <div class="col-1 pt-1 mr-1">
+                  <i class="ti-envelope icon-md"></i>
+                </div>
+                <div class="col-10">
+                  <h6 class="d-inline">
+                    Email :<br />
+                    <span class="text-muted"
+                      >jayprakash_24a02res06@iitp.ac.in</span
+                    >
+                  </h6>
+                </div>
+              </div>
+              <ul class="social-icons pt-4">
+                <li class="social-item">
+                  <a
+                    class="social-link text-dark"
+                    href="https://x.com/jsnair2000"
+                    ><i class="ti-twitter" aria-hidden="true"></i
+                  ></a>
+                </li>
+                <li class="social-item">
+                  <a class="social-link text-dark" href="#"
+                    ><i class="ti-google" aria-hidden="true"></i
+                  ></a>
+                </li>
+                <li class="social-item">
+                  <a
+                    class="social-link text-dark"
+                    href="https://www.instagram.com/darthjay2000/"
+                    ><i class="ti-instagram" aria-hidden="true"></i
+                  ></a>
+                </li>
+                <li class="social-item">
+                  <a
+                    class="social-link text-light"
+                    href="https://www.linkedin.com/in/jayprakash-nair-8a937a18a/"
+                    ><i class="ti-linkedin" aria-hidden="true"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <!-- Isotope  -->
-        <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
+    <!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
 
-        <!-- JohnDoe js -->
-        <script src="assets/js/johndoe.js"></script>
+    <!-- bootstrap 3 affix -->
+    <script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
 
-    </body>
+    <!-- Isotope  -->
+    <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
+
+    <!-- JohnDoe js -->
+    <script src="assets/js/johndoe.js"></script>
+  </body>
 </html>
