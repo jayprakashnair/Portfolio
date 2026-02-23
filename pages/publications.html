@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications — JP Nair</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Rajdhani:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <link rel="icon" href="../assets/pics/logos/favicon-32x32.png">
+
+
+    <style>
+        /* --- 3D Book Cover Styles --- */
+        .pub-card {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            padding: 2rem;
+            position: relative;
+            transition: background 0.3s;
+        }
+
+        .pub-card.highlight-target {
+            background: rgba(76, 161, 175, 0.1);
+            border-radius: 8px;
+        }
+
+        .book-visual {
+            position: relative;
+            width: 100px;
+            height: 140px;
+            perspective: 1000px;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .book-visual:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+
+        .book-cover {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            border-radius: 2px 6px 6px 2px;
+            box-shadow:
+                -2px 5px 10px rgba(0, 0, 0, 0.2),
+                inset 4px 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            transform-style: preserve-3d;
+            transform: rotateY(-15deg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.8);
+            font-family: 'Rajdhani', sans-serif;
+            text-align: center;
+            padding: 10px;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .book-cover::before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            right: -8px;
+            width: 8px;
+            height: 96%;
+            background: linear-gradient(to right, #fff 0%, #ddd 100%);
+            transform: skewY(15deg);
+            border-radius: 0 2px 2px 0;
+        }
+
+        .book-cover::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px 0 0 2px;
+        }
+
+        .pub-content {
+            flex-grow: 1;
+        }
+
+        /* --- Modal Styles (Shared) --- */
+        .app-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(10, 10, 12, 0.95);
+            z-index: 9999;
+            display: none;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .app-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-header {
+            min-height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .modal-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            opacity: 0.9;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 40%;
+        }
+
+        .modal-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .modal-controls .toolbar-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+
+        .modal-controls button,
+        .modal-controls a {
+            background: none;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: color 0.2s, transform 0.2s;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-controls button:hover,
+        .modal-controls a:hover {
+            color: #4ca1af;
+            transform: scale(1.1);
+        }
+
+        .page-info {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: #ccc;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        /* --- Reader Body & Canvas --- */
+        .modal-body {
+            flex-grow: 1;
+            position: relative;
+            background: #2a2a2e;
+            overflow: hidden;
+            /* Keep arrows fixed, allow inner scroll */
+            display: flex;
+        }
+
+        .canvas-container {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            /* Allow scrolling for zoomed PDF */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem;
+        }
+
+        #pdf-canvas {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            border-radius: 4px;
+            max-width: none;
+            /* Allow canvas to grow with zoom */
+        }
+
+        /* --- Floating Side Navigation Arrows --- */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-arrow:hover {
+            background: rgba(76, 161, 175, 0.9);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-arrow:disabled {
+            background: rgba(0, 0, 0, 0.2);
+            color: rgba(255, 255, 255, 0.3);
+            cursor: not-allowed;
+            transform: translateY(-50%);
+        }
+
+        .nav-arrow.left {
+            left: 2rem;
+        }
+
+        .nav-arrow.right {
+            right: 2rem;
+        }
+
+        /* --- Video Modal Styles --- */
+        .video-wrapper {
+            width: 100%;
+            max-width: 900px;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            margin: auto;
+        }
+
+        .video-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        @media (max-width: 768px) {
+            .pub-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1.5rem;
+            }
+
+            .book-visual {
+                display: none;
+            }
+
+            .modal-header {
+                flex-direction: column;
+                padding: 1rem;
+                align-items: stretch;
+            }
+
+            .modal-title {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .modal-controls {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .nav-arrow.left {
+                left: 0.5rem;
+            }
+
+            .nav-arrow.right {
+                right: 0.5rem;
+            }
+
+            .canvas-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script src="../js/shell.js"></script>
+
+    <main class="main-content page-content">
+        <nav class="page-nav-strip">
+            <a href="../index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="publications.html" class="active">Papers</a>
+            <a href="conferences.html">Conferences</a>
+            <a href="talks.html">Talks</a>
+        </nav>
+
+        <section id="publications" class="section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-book-open"></i></div>
+                <h2 class="section-title">Library</h2>
+            </div>
+
+            <h3
+                style="color:var(--text-secondary); margin: 2rem 0 1rem 0; font-family:'Rajdhani'; text-transform:uppercase; letter-spacing:1px; font-size:0.9rem; padding-left: 5px;">
+                <i class="fas fa-hourglass-half"></i> Upcoming Release
+            </h3>
+
+            <div class="glass-card"
+                style="border: 1px solid rgba(76, 161, 175, 0.3); background: rgba(76, 161, 175, 0.05); margin-bottom: 2rem;">
+                <div class="pub-card">
+                    <div class="book-visual">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #005c97, #363795);">
+                            <div
+                                style="border: 2px dashed rgba(255,255,255,0.3); width:80%; height:80%; display:flex; align-items:center; justify-content:center; flex-direction:column;">
+                                <i class="fas fa-cogs fa-2x" style="margin-bottom:10px;"></i>
+                                <span style="font-size:0.7rem; text-transform:uppercase;">EvoStar '26</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pub-content">
+                        <h3 class="pub-title">A RL–Inspired Latent Yield-based Adaptive Algorithm Switching Mechanism
+                        </h3>
+                        <div class="pub-meta">
+                            <span>JS Nair, Jimson Mathew, SB Nair</span> |
+                            <span>April 2026</span> |
+                            <span>EvoApplications (EvoStar)</span>
+                        </div>
+                        <div class="pub-abstract">
+                            <strong>Accepted for Publication.</strong> Proposes a latent yield-based method for stable
+                            and adaptive online algorithm selection using island models. To be presented in Toulouse,
+                            France.
+                        </div>
+                        <div style="margin-top:10px;display:flex;gap:10px;">
+                            <button class="tag"
+                                style="opacity:0.6; cursor:not-allowed; background:rgba(255,255,255,0.05);">
+                                <i class="fas fa-lock"></i> Coming Soon
+                            </button>
+                            <a href="https://www.evostar.org/2026/" target="_blank" class="tag highlight">Conference
+                                Info</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3
+                style="color:var(--text-secondary); margin: 0 0 1rem 0; font-family:'Rajdhani'; text-transform:uppercase; letter-spacing:1px; font-size:0.9rem; padding-left: 5px;">
+                <i class="fas fa-check-circle"></i> Published
+            </h3>
+
+            <div class="glass-card">
+
+                <div class="pub-card" id="paper1-card">
+                    <div class="book-visual" onclick="openReader('Decentralizing FRL', '../assets/pdfs/paper1.pdf')">
+                        <div class="book-cover">
+                            <img src="../assets/pics/logos/Ieee.jpg" alt="IEEE" style="height:32px;">
+                        </div>
+                    </div>
+
+                    <div class="pub-content">
+                        <h3 class="pub-title">On Decentralizing Federated Reinforcement Learning in Multi-Robot
+                            Scenarios</h3>
+                        <div class="pub-meta">
+                            <span>JS Nair, DD Kulkarni, et al.</span> |
+                            <span>2022</span> |
+                            <span>IEEE SEEDA-CECNSM</span>
+                        </div>
+                        <div class="pub-abstract">
+                            Presents a mobile agent-based approach to Decentralized Federated Learning (FL) in
+                            multi-robot systems addressing central node failures.
+                        </div>
+                        <div style="margin-top:10px;display:flex;gap:10px;">
+                            <button onclick="openReader('Decentralizing FRL', '../assets/pdfs/paper1.pdf')"
+                                class="tag highlight" style="border:none; cursor:pointer;">
+                                <i class="fas fa-book-reader"></i> Read Paper
+                            </button>
+
+                            <button onclick="playVideo('paper1')" class="tag" style="border:none; cursor:pointer;">
+                                <i class="fab fa-youtube"></i> Video
+                            </button>
+
+                            <a href="https://doi.org/10.1109/SEEDA-CECNSM57760.2022.9932985" target="_blank"
+                                class="tag">DOI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border:0; border-top:1px solid rgba(0,0,0,0.1); margin:0;">
+
+                <div class="pub-card" id="paper2-card">
+                    <div class="book-visual" onclick="openReader('HyFRL Approach', '../assets/pdfs/paper2.pdf')">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #141E30, #243B55);">
+                            <img src="../assets/pics/logos/springer.jpeg" alt="springer" style="height:60px;">
+                        </div>
+                    </div>
+
+                    <div class="pub-content">
+                        <h3 class="pub-title">A Hybrid Federated Reinforcement Learning Approach</h3>
+                        <div class="pub-meta">
+                            <span>G.Rangu, J.S.Nair, et al.</span> |
+                            <span>2023</span> |
+                            <span>Springer</span>
+                        </div>
+                        <div class="pub-abstract">
+                            Introduces HyFRL, combining centralized and decentralized methods for efficient Q-table
+                            aggregation in networked robots.
+                        </div>
+                        <div style="margin-top:10px;display:flex;gap:10px;">
+                            <button onclick="openReader('HyFRL Approach', '../assets/pdfs/paper2.pdf')"
+                                class="tag highlight" style="border:none; cursor:pointer;">
+                                <i class="fas fa-book-reader"></i> Read Paper
+                            </button>
+
+                            <a href="https://doi.org/10.1007/978-981-99-4713-3_47" class="tag">DOI</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <div id="reader-modal" class="app-modal">
+        <div class="modal-header">
+            <div id="reader-title" class="modal-title">Paper Title</div>
+
+            <div class="modal-controls">
+                <div class="toolbar-group">
+                    <span class="page-info">Page <span id="page-num">1</span> / <span id="page-count">--</span></span>
+                </div>
+
+                <div class="toolbar-group">
+                    <button id="zoom-out" title="Zoom Out"><i class="fas fa-search-minus"></i></button>
+                    <button id="zoom-in" title="Zoom In"><i class="fas fa-search-plus"></i></button>
+                </div>
+
+                <div class="toolbar-group" style="background:none; gap:1.5rem;">
+                    <a id="reader-download" href="#" download title="Download PDF"><i class="fas fa-download"></i></a>
+                    <button onclick="closeModal('reader-modal')" title="Close Reader"><i
+                            class="fas fa-times"></i></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-body">
+            <button id="prev-page" class="nav-arrow left" title="Previous Page"><i
+                    class="fas fa-chevron-left"></i></button>
+
+            <div class="canvas-container">
+                <canvas id="pdf-canvas"></canvas>
+            </div>
+
+            <button id="next-page" class="nav-arrow right" title="Next Page"><i
+                    class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    <div id="video-modal" class="app-modal">
+        <div class="modal-header">
+            <div id="video-title" class="modal-title">Video Title</div>
+            <div class="modal-controls">
+                <button onclick="closeModal('video-modal')" title="Close"><i class="fas fa-times"></i></button>
+            </div>
+        </div>
+        <div class="modal-body">
+            <div class="video-wrapper">
+                <iframe id="video-frame" class="video-frame" src=""
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+
+    <script>
+        // ==========================================
+        // CONFIGURATION: VIDEO DATABASE
+        // ==========================================
+        const videoDatabase = {
+            'paper1': {
+                title: 'Decentralizing FRL - Video Abstract',
+                url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+            },
+            'paper2': {
+                title: 'HyFRL Approach - Video Abstract',
+                url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+            }
+        };
+
+        window.addEventListener('load', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const videoId = urlParams.get('v');
+
+            if (videoId && videoDatabase[videoId]) {
+                const card = document.getElementById(videoId + '-card');
+                if (card) {
+                    card.classList.add('highlight-target');
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+                setTimeout(() => { playVideo(videoId); }, 800);
+            }
+        });
+
+        // ==========================================
+        // PDF.JS CONFIGURATION & LOGIC
+        // ==========================================
+        const pdfjsLib = window['pdfjs-dist/build/pdf'];
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+        let pdfDoc = null,
+            pageNum = 1,
+            pageRendering = false,
+            pageNumPending = null,
+            scale = 1.2,
+            canvas = document.getElementById('pdf-canvas'),
+            ctx = canvas.getContext('2d');
+
+        function renderPage(num) {
+            pageRendering = true;
+
+            pdfDoc.getPage(num).then(function (page) {
+                const viewport = page.getViewport({ scale: scale });
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                const renderContext = {
+                    canvasContext: ctx,
+                    viewport: viewport
+                };
+
+                const renderTask = page.render(renderContext);
+
+                renderTask.promise.then(function () {
+                    pageRendering = false;
+                    if (pageNumPending !== null) {
+                        renderPage(pageNumPending);
+                        pageNumPending = null;
+                    }
+                });
+            });
+
+            document.getElementById('page-num').textContent = num;
+
+            document.getElementById('prev-page').disabled = num <= 1;
+            document.getElementById('next-page').disabled = num >= pdfDoc.numPages;
+        }
+
+        function queueRenderPage(num) {
+            if (pageRendering) {
+                pageNumPending = num;
+            } else {
+                renderPage(num);
+            }
+        }
+
+        function onPrevPage() {
+            if (pageNum <= 1) return;
+            pageNum--;
+            queueRenderPage(pageNum);
+        }
+
+        function onNextPage() {
+            if (pageNum >= pdfDoc.numPages) return;
+            pageNum++;
+            queueRenderPage(pageNum);
+        }
+
+        function onZoomIn() {
+            scale += 0.2;
+            queueRenderPage(pageNum);
+        }
+
+        function onZoomOut() {
+            if (scale <= 0.6) return;
+            scale -= 0.2;
+            queueRenderPage(pageNum);
+        }
+
+        // Attach Event Listeners
+        document.getElementById('prev-page').addEventListener('click', onPrevPage);
+        document.getElementById('next-page').addEventListener('click', onNextPage);
+        document.getElementById('zoom-in').addEventListener('click', onZoomIn);
+        document.getElementById('zoom-out').addEventListener('click', onZoomOut);
+
+        // ==========================================
+        // UI FUNCTIONS (OPENING / CLOSING MODALS)
+        // ==========================================
+
+        function openReader(title, pdfUrl) {
+            const modal = document.getElementById('reader-modal');
+            const titleEl = document.getElementById('reader-title');
+            const downloadLink = document.getElementById('reader-download');
+
+            titleEl.textContent = title;
+            downloadLink.href = pdfUrl;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            document.getElementById('page-count').textContent = '--';
+
+            pdfjsLib.getDocument(pdfUrl).promise.then(function (pdfDoc_) {
+                pdfDoc = pdfDoc_;
+                document.getElementById('page-count').textContent = pdfDoc.numPages;
+
+                pageNum = 1;
+                scale = 1.2;
+                renderPage(pageNum);
+            }).catch(function (error) {
+                console.error("Error loading the PDF:", error);
+                alert("Sorry, the PDF couldn't be loaded at this time.");
+            });
+
+            showModal(modal);
+        }
+
+        function playVideo(id) {
+            const data = videoDatabase[id];
+            if (!data) return;
+            openVideoModal(data.title, data.url);
+        }
+
+        function openVideoModal(title, videoUrl) {
+            const modal = document.getElementById('video-modal');
+            const frame = document.getElementById('video-frame');
+            const titleEl = document.getElementById('video-title');
+
+            let embedUrl = videoUrl;
+            if (videoUrl.includes('youtube.com/watch?v=') || videoUrl.includes('youtu.be/')) {
+                const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+                const match = videoUrl.match(regExp);
+                if (match && match[2].length === 11) {
+                    embedUrl = 'https://www.youtube.com/embed/' + match[2] + '?autoplay=1';
+                }
+            }
+
+            titleEl.textContent = title;
+            frame.src = embedUrl;
+            showModal(modal);
+        }
+
+        function showModal(modalEl) {
+            modalEl.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                modalEl.classList.add('active');
+            }, 10);
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('active');
+
+            if (modalId === 'video-modal') {
+                const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+                window.history.pushState({ path: cleanUrl }, '', cleanUrl);
+            }
+
+            setTimeout(() => {
+                modal.style.display = 'none';
+                if (modalId === 'video-modal') document.getElementById('video-frame').src = '';
+            }, 300);
+
+            document.body.style.overflow = 'auto';
+        }
+
+        // Added Keyboard Navigation!
+        document.addEventListener('keydown', function (event) {
+            if (event.key === "Escape") {
+                if (document.getElementById('reader-modal').style.display === 'flex') closeModal('reader-modal');
+                if (document.getElementById('video-modal').style.display === 'flex') closeModal('video-modal');
+            }
+
+            // Allow left/right arrow keys to flip pages
+            if (document.getElementById('reader-modal').style.display === 'flex') {
+                if (event.key === "ArrowLeft") onPrevPage();
+                if (event.key === "ArrowRight") onNextPage();
+            }
+        });
+    </script>
+</body>
+
+</html>

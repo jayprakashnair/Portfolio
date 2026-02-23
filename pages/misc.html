@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misc — JP Nair</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Rajdhani:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../assets/pics/logos/favicon-32x32.png">
+
+</head>
+
+<body>
+    <script src="../js/shell.js"></script>
+
+    <main class="main-content page-content">
+        <nav class="page-nav-strip">
+            <a href="../index.html">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="misc.html" class="active">Misc</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+
+        <section id="misc" class="section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-star"></i></div>
+                <h2 class="section-title">Misc &amp; Hobbies</h2>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-track" id="miscTrack">
+
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop"
+                            class="carousel-img">
+                        <div class="carousel-content">
+                            <h3 class="project-title">Robotics Simulation</h3>
+                            <p class="project-desc">Experimenting with Webots and Gazebo to simulate complex multi-agent
+                                behaviors in realistic physics environments.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+                            class="carousel-img">
+                        <div class="carousel-content">
+                            <h3 class="project-title">Sci-Fi Enthusiast</h3>
+                            <p class="project-desc">Exploring concepts of singularity and transhumanism through
+                                literature and movies. Big fan of Asimov and Clarke.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1499750310159-52f0f8372f1a?q=80&w=2020&auto=format&fit=crop"
+                            class="carousel-img">
+                        <div class="carousel-content">
+                            <h3 class="project-title">Tech Blogging</h3>
+                            <p class="project-desc">Sharing insights on RL, Drones, and AI trends. Simplifying complex
+                                algorithms for the community.</p>
+                        </div>
+                    </div>
+
+                </div><!-- /.carousel-track -->
+                <div class="carousel-nav">
+                    <button class="carousel-btn" id="miscPrev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn" id="miscNext"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+        <section id="misc" class="section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-star"></i></div>
+                <h2 class="section-title">Misc &amp; Hobbies</h2>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-track" id="miscTrack">
+
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=2070&auto=format&fit=crop"
+                            class="carousel-img">
+                        <div class="carousel-content">
+                            <h3 class="project-title">Robotics Simulation</h3>
+                            <p class="project-desc">Experimenting with Webots and Gazebo to simulate complex multi-agent
+                                behaviors in realistic physics environments.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
+                            class="carousel-img">
+                        <div class="carousel-content">
+                            <h3 class="project-title">Sci-Fi Enthusiast</h3>
+                            <p class="project-desc">Exploring concepts of singularity and transhumanism through
+                                literature and movies. Big fan of Asimov and Clarke.</p>
+                        </div>
+                    </div>
+
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1499750310159-52f0f8372f1a?q=80&w=2020&auto=format&fit=crop"
+                            class="carousel-img">
+                        <div class="carousel-content">
+                            <h3 class="project-title">Tech Blogging</h3>
+                            <p class="project-desc">Sharing insights on RL, Drones, and AI trends. Simplifying complex
+                                algorithms for the community.</p>
+                        </div>
+                    </div>
+
+                </div><!-- /.carousel-track -->
+                <div class="carousel-nav">
+                    <button class="carousel-btn" id="miscPrev"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn" id="miscNext"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initCarousel('miscTrack', 'miscPrev', 'miscNext', 4000);
+        });
+    </script>
+</body>
+
+</html>

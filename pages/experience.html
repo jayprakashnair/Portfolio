@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience — JP Nair</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Rajdhani:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../assets/pics/logos/favicon-32x32.png">
+
+
+    <!-- Tag Styling -->
+    <style>
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tech-tag {
+            background: var(--item-bg);
+            border: 1px solid var(--item-border);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Rectangular logos */
+        .timeline-logo {
+            width: 150px;
+            height: 60px;
+            /* rectangular */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border-radius: 10px;
+            /* rectangle, not circle */
+            overflow: hidden;
+        }
+
+        /* Circular only for IIT */
+        .timeline-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            /* keeps logo aspect ratio */
+        }
+    </style>
+</head>
+
+<body>
+
+    <script src="../js/shell.js"></script>
+
+    <main class="main-content page-content">
+
+        <nav class="page-nav-strip">
+            <a href="../index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="education.html">Education</a>
+            <a href="experience.html" class="active">Experience</a>
+            <a href="projects.html">Projects</a>
+        </nav>
+
+        <section id="experience" class="section">
+
+            <!-- ================= Research ================= -->
+
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-flask"></i></div>
+                <h2 class="section-title">Research Experience</h2>
+            </div>
+
+            <!-- IIT Ropar -->
+            <div class="timeline-item">
+                <div class="timeline-logo circle-logo">
+                    <img src="../assets/pics/logos/iitr.svg">
+                </div>
+
+                <div class="timeline-content">
+                    <div class="role-title">Research Intern</div>
+                    <div class="company-name">Indian Institute of Technology (IIT) Ropar</div>
+                    <span class="duration">Sep 2025 — Present · Ropar, India</span>
+
+                    <p>
+                        Conducting research on <strong>visual perception, localization, and autonomous navigation for
+                            UAVs</strong>
+                        in GPS-denied and dynamic environments. The work focuses on robust perception-driven autonomy
+                        using deep visual representations, feature-based matching, and real-time decision making for
+                        reliable aerial operations.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span class="tech-tag">OpenCV</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Vision Transformers</span>
+                        <span class="tech-tag">Visual SLAM</span>
+                        <span class="tech-tag">SIFT</span>
+                        <span class="tech-tag">UAV Autonomy</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IIT Guwahati -->
+            <div class="timeline-item">
+                <div class="timeline-logo circle-logo">
+                    <img src="../assets/pics/logos/iitg.png">
+                </div>
+
+                <div class="timeline-content">
+                    <div class="role-title">Research Intern</div>
+                    <div class="company-name">Indian Institute of Technology (IIT) Guwahati</div>
+                    <span class="duration">Feb 2019 — Dec 2019 · Guwahati, India</span>
+
+                    <p>
+                        Investigated <strong>multi-agent coordination, decentralized intelligence, and bio-inspired
+                            robotic systems</strong>. Designed distributed control and communication strategies to
+                        enable
+                        scalable, adaptive, and robust robotic cooperation in dynamic environments.
+                    </p>
+
+                    <p>
+                        Developed simulation frameworks and implemented agent mobility, learning, and collaboration
+                        using Webots and the Tartarus multi-agent platform.
+                    </p>
+
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Webots</span>
+                        <span class="tech-tag">Multi-Agent Systems</span>
+                        <span class="tech-tag">Federated Learning</span>
+                        <span class="tech-tag">Reinforcement Learning</span>
+                        <span class="tech-tag">Bio-inspired AI</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ================= Industry ================= -->
+
+            <div class="section-header" style="margin-top:60px;">
+                <div class="section-icon"><i class="fas fa-briefcase"></i></div>
+                <h2 class="section-title">Industry Experience</h2>
+            </div>
+
+            <!-- People10 -->
+            <div class="timeline-item">
+                <div class="timeline-logo">
+                    <img src="../assets/pics/logos/p10.webp">
+                </div>
+
+                <div class="timeline-content">
+                    <div class="role-title">Senior Software Contractor</div>
+                    <div class="company-name">People10 Technologies Inc.</div>
+                    <span class="duration">July 2022 — Aug 2024 · Bengaluru, India</span>
+
+                    <p>
+                        Contributed to large-scale airline and e-commerce platforms, focusing on scalable backend
+                        architectures, pricing intelligence, and high-reliability booking workflows. Delivered
+                        robust systems handling high transaction volumes and real-time pricing.
+                    </p>
+
+                    <p>
+                        <strong>Client:</strong> Allegiant Air
+                    </p>
+
+                    <ul style="margin-top:8px;color:var(--text-muted);font-size:0.95rem;">
+                        <li>Designed dynamic <strong>pricing, cart, and bundle optimization systems</strong>.</li>
+                        <li>Developed scalable <strong>GraphQL APIs and transaction workflows</strong>.</li>
+                        <li>Implemented post-booking processes including flight change and upgrade.</li>
+                        <li>Built secure <strong>payment and distributed transaction services</strong>.</li>
+                        <li>Improved performance using distributed caching and monitoring.</li>
+                        <li>Created automation pipelines with BDD and end-to-end testing.</li>
+                    </ul>
+
+                    <div class="tech-tags">
+                        <span class="tech-tag">PHP Symfony</span>
+                        <span class="tech-tag">GraphQL</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">Dynatrace</span>
+                        <span class="tech-tag">WebdriverIO</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Distributed Systems</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+
+</body>
+
+</html>

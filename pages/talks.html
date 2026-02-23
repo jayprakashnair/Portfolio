@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talks — JP Nair</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Rajdhani:wght@500;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../../assets/pics/logos/favicon-32x32.png">
+
+    <style>
+        /* Clean card spacing */
+        .talk-card {
+            padding: 18px 22px;
+            border-radius: 12px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass-bg);
+            margin-bottom: 20px;
+            transition: all 0.25s ease;
+        }
+
+        .talk-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+
+        /* venue styling */
+        .talk-venue {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 4px 0 8px;
+        }
+
+        /* year badge */
+        .talk-year {
+            font-family: "Fira Code", monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 4px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <script src="../js/shell.js"></script>
+
+    <main class="main-content page-content">
+
+        <nav class="page-nav-strip">
+            <a href="../index.html">Home</a>
+            <a href="publications.html">Papers</a>
+            <a href="talks.html" class="active">Talks</a>
+        </nav>
+
+        <section id="talks" class="section">
+
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-microphone"></i></div>
+                <h2 class="section-title">Talks & Sessions</h2>
+            </div>
+
+            <div class="glass-card">
+
+                <!-- 2024 -->
+                <div class="talk-card">
+                    <div class="talk-year">2024</div>
+                    <div class="role-title">
+                        Allegiant Air Middleware System Design (Knowledge Transfer)
+                    </div>
+
+                    <div class="talk-venue">Industry Talk · People10 Technologies</div>
+
+                    <p>
+                        Delivered a technical knowledge transfer session on
+                        <strong>middleware architecture, distributed transaction workflows, and scalable airline booking
+                            systems</strong>.
+                        Covered microservice orchestration, fault tolerance, and performance optimization in
+                        high-availability production environments.
+                    </p>
+                </div>
+
+                <!-- 2023 -->
+                <div class="talk-card">
+                    <div class="talk-year">2023</div>
+                    <div class="role-title">Getting Started with LaTeX</div>
+
+                    <div class="talk-venue">Industry Talk · People10 Technologies</div>
+
+                    <p>
+                        Conducted a hands-on session on <strong>LaTeX for research and technical documentation</strong>,
+                        including document structuring,
+                        bibliography management, collaboration workflows, and reproducible academic writing practices.
+                    </p>
+                </div>
+
+                <!-- 2022 -->
+                <div class="talk-card">
+                    <div class="talk-year">2022</div>
+                    <div class="role-title">
+                        On Decentralizing Federated Reinforcement Learning in Multi-Robot Scenarios
+                    </div>
+
+                    <div class="talk-venue">
+                        Research Seminar · Federal Institute of Science and Technology (FISAT)
+                    </div>
+
+                    <p>
+                        Presented research insights on <strong>decentralized federated reinforcement learning</strong>
+                        for scalable and
+                        privacy-preserving multi-robot coordination. Discussed convergence stability, communication
+                        efficiency,
+                        and robustness in distributed autonomous systems.
+                    </p>
+                </div>
+
+                <!-- 2021 -->
+                <div class="talk-card">
+                    <div class="talk-year">2021</div>
+                    <div class="role-title">
+                        Decentralized Learning Works: An Empirical Comparison of Gossip Learning and Federated Learning
+                    </div>
+
+                    <div class="talk-venue">
+                        Research Seminar · Federal Institute of Science and Technology (FISAT)
+                    </div>
+
+                    <p>
+                        Delivered a technical seminar comparing <strong>gossip-based and federated learning
+                            paradigms</strong> for distributed intelligence.
+                        Covered scalability, robustness, and applications in decentralized multi-agent and robotic
+                        environments.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script src="../js/animations.js"></script>
+
+</body>
+
+</html>
