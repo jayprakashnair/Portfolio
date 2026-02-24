@@ -233,6 +233,7 @@
             100%          { opacity: 1; filter: blur(0) grayscale(0); }
         }
 
+        /* ── DESKTOP / TABLET: original untouched values ── */
         .hero-role {
             font-size: 0.85rem;
             color: var(--accent);
@@ -258,6 +259,32 @@
             .hero-role {
                 font-size: 1.5rem;
                 margin-top: 130px;
+            }
+        }
+
+        /* ── MOBILE ONLY FIX ────────────────────────────────────────
+           animations.js injects the hero name (~2.5rem, ~2 lines)
+           absolutely/at-end into .hero-profile-content, so it floats
+           over whatever is below it on mobile.
+           Solution: increase hero-side min-height so there is room,
+           and push .hero-role (and everything after it) down far
+           enough that it clears the injected name text completely.
+        ─────────────────────────────────────────────────────────── */
+        @media (max-width: 640px) {
+            .hero-side {
+                min-height: 520px;
+            }
+
+            .hero-profile-content {
+                padding-top: 50px;
+            }
+
+            /* pic is 110px + 20px margin-bottom from hologram-container
+               + injected name (~100px tall at ~2.5rem × 1.2 line-height × 2 lines)
+               = ~230px total before role should start.
+               margin-top: 180px pushes role safely below the name. */
+            .hero-role {
+                margin-top: 180px;
             }
         }
 
