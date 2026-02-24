@@ -15,6 +15,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 
     <style>
+        /* ── Global mobile overflow fix ── */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         /* ── Index-only styles ── */
         .landing-container {
             display: flex;
@@ -30,7 +40,18 @@
             max-width: 1500px;
             margin: 0 auto;
             padding-bottom: 40px;
+            padding-left: 16px;
+            padding-right: 16px;
             box-sizing: border-box;
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .landing-container {
+                padding-left: 24px;
+                padding-right: 24px;
+                gap: 32px;
+                padding-top: calc(var(--nav-height) + 32px);
+            }
         }
 
         @media (min-width: 1025px) {
@@ -53,7 +74,13 @@
             align-items: center;
             justify-content: center;
             position: relative;
-            min-height: 500px;
+            min-height: 380px;
+        }
+
+        @media (max-width: 640px) {
+            .hero-side {
+                min-height: 320px;
+            }
         }
 
         @media (min-width: 1025px) {
@@ -80,7 +107,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 80px;
+            padding-top: 60px;
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .hero-profile-content {
+                padding-top: 100px;
+            }
         }
 
         @media (min-width: 1025px) {
@@ -99,30 +132,60 @@
         }
 
         .projector-bot {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--accent);
             position: absolute;
-            top: -60px;
+            top: -52px;
             animation: hoverBot 3s ease-in-out infinite, flyIn 1.5s ease-out forwards;
             z-index: 5;
         }
 
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .projector-bot {
+                font-size: 2rem;
+                top: -65px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .projector-bot {
+                font-size: 3rem;
+                top: -90px;
+            }
+        }
+
         .hologram-beam {
-            width: 100px;
-            height: 80px;
+            width: 70px;
+            height: 55px;
             background: linear-gradient(to bottom, rgba(0, 242, 255, 0.5), transparent);
             clip-path: polygon(40% 0, 60% 0, 100% 100%, 0% 100%);
             position: absolute;
-            top: -30px;
+            top: -22px;
             z-index: 4;
             opacity: 0;
             animation: beamActivate 0.5s 1.2s forwards;
             pointer-events: none;
         }
 
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .hologram-beam {
+                width: 120px;
+                height: 75px;
+                top: -32px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .hologram-beam {
+                width: 180px;
+                height: 100px;
+                top: -40px;
+            }
+        }
+
         .profile-pic {
-            width: 150px;
-            height: 150px;
+            width: 110px;
+            height: 110px;
             border-radius: 50%;
             object-fit: cover;
             border: 4px solid var(--accent);
@@ -132,6 +195,13 @@
             animation: hologramTurnOn 0.8s 1.5s forwards;
         }
 
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .profile-pic {
+                width: 180px;
+                height: 180px;
+            }
+        }
+
         @media (min-width: 1025px) {
             .profile-pic {
                 width: 240px;
@@ -139,89 +209,49 @@
                 border-width: 6px;
                 box-shadow: 0 0 50px rgba(0, 242, 255, 0.5);
             }
-
-            .hologram-beam {
-                width: 180px;
-                height: 100px;
-                top: -40px;
-            }
-
-            .projector-bot {
-                font-size: 3rem;
-                top: -90px;
-            }
         }
 
         @keyframes hoverBot {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50%       { transform: translateY(-10px); }
         }
 
         @keyframes flyIn {
-            from {
-                top: -300px;
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+            from { top: -300px; opacity: 0; }
+            to   { opacity: 1; }
         }
 
         @keyframes beamActivate {
-            0% {
-                opacity: 0;
-                transform: scaleY(0);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scaleY(1);
-            }
+            0%   { opacity: 0; transform: scaleY(0); }
+            100% { opacity: 1; transform: scaleY(1); }
         }
 
         @keyframes hologramTurnOn {
-            0% {
-                opacity: 0;
-                filter: blur(10px) grayscale(100%);
-            }
-
-            10%,
-            30%,
-            50% {
-                opacity: 0.6;
-                filter: blur(2px) grayscale(50%);
-            }
-
-            20%,
-            40% {
-                opacity: 0.2;
-                filter: blur(8px);
-            }
-
-            100% {
-                opacity: 1;
-                filter: blur(0) grayscale(0);
-            }
+            0%            { opacity: 0; filter: blur(10px) grayscale(100%); }
+            10%, 30%, 50% { opacity: 0.6; filter: blur(2px) grayscale(50%); }
+            20%, 40%      { opacity: 0.2; filter: blur(8px); }
+            100%          { opacity: 1; filter: blur(0) grayscale(0); }
         }
 
         .hero-role {
-            font-size: 1.1rem;
+            font-size: 0.85rem;
             color: var(--accent);
             font-family: 'Rajdhani', sans-serif;
-            letter-spacing: 0.2em;
-            margin-top: 80px;
-            margin-bottom: 24px;
+            letter-spacing: 0.15em;
+            margin-top: 60px;
+            margin-bottom: 16px;
             font-weight: 700;
             text-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
             text-transform: uppercase;
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .hero-role {
+                font-size: 1.1rem;
+                margin-top: 100px;
+                margin-bottom: 20px;
+                letter-spacing: 0.2em;
+            }
         }
 
         @media (min-width: 1025px) {
@@ -234,16 +264,23 @@
         .hero-actions {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 10px;
             flex-wrap: wrap;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
+        }
+
+        @media (min-width: 641px) {
+            .hero-actions {
+                gap: 16px;
+                margin-bottom: 24px;
+            }
         }
 
         .hero-btn {
-            padding: 10px 28px;
+            padding: 9px 20px;
             border-radius: 99px;
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -254,6 +291,13 @@
             color: var(--text-main);
             cursor: pointer;
             text-decoration: none;
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .hero-btn {
+                padding: 10px 28px;
+                font-size: 0.95rem;
+            }
         }
 
         @media (min-width: 1025px) {
@@ -278,13 +322,25 @@
         .research-links {
             display: flex;
             justify-content: center;
-            gap: 16px;
+            gap: 10px;
             margin-bottom: 20px;
         }
 
+        @media (min-width: 641px) {
+            .research-links {
+                gap: 16px;
+            }
+        }
+
+        @media (min-width: 1025px) {
+            .research-links {
+                gap: 20px;
+            }
+        }
+
         .research-icon {
-            width: 44px;
-            height: 44px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
@@ -292,17 +348,21 @@
             align-items: center;
             justify-content: center;
             color: var(--text-muted);
-            font-size: 1.2rem;
+            font-size: 1rem;
             transition: all 0.2s;
             backdrop-filter: blur(5px);
             text-decoration: none;
         }
 
-        @media (min-width: 1025px) {
-            .research-links {
-                gap: 20px;
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .research-icon {
+                width: 44px;
+                height: 44px;
+                font-size: 1.2rem;
             }
+        }
 
+        @media (min-width: 1025px) {
             .research-icon {
                 width: 50px;
                 height: 50px;
@@ -320,14 +380,13 @@
         .terminal-side {
             flex: 0 0 auto;
             width: 100%;
-            max-width: 600px;
-            margin-top: 20px;
+            max-width: 100%;
+            margin-top: 0;
         }
 
         @media (min-width: 1025px) {
             .terminal-side {
                 flex: 0 0 500px;
-                margin-top: 0;
             }
         }
 
@@ -340,16 +399,28 @@
             box-shadow: var(--shadow);
             display: flex;
             flex-direction: column;
-            height: 400px;
-            resize: both;
-            min-width: 700px;
-            max-width: 100%;
+            /* Mobile: full width, no resize, fixed height */
+            width: 100% !important;
+            min-width: unset !important;
+            height: 280px;
+            resize: none;
             position: relative;
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .terminal-card {
+                height: 380px;
+                resize: vertical;
+                min-height: 280px;
+            }
         }
 
         @media (min-width: 1025px) {
             .terminal-card {
                 height: 600px;
+                resize: both;
+                min-width: 700px !important;
+                max-width: 100%;
             }
         }
 
@@ -374,7 +445,6 @@
         }
 
         .viewer-toolbar {
-            height: 60px;
             background: rgba(255, 255, 255, 0.05);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
@@ -383,6 +453,23 @@
             padding: 0 2rem;
             color: #fff;
             flex-shrink: 0;
+            min-height: 60px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        @media (max-width: 640px) {
+            .viewer-toolbar {
+                padding: 8px 12px;
+                min-height: auto;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .viewer-toolbar {
+                padding: 0 20px;
+                min-height: 56px;
+            }
         }
 
         .viewer-title {
@@ -392,10 +479,29 @@
             color: var(--accent, #00f2ff);
         }
 
+        @media (max-width: 640px) {
+            .viewer-title {
+                font-size: 1rem;
+            }
+        }
+
         .viewer-controls {
             display: flex;
             align-items: center;
             gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 640px) {
+            .viewer-controls {
+                gap: 8px;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .viewer-controls {
+                gap: 14px;
+            }
         }
 
         .viewer-btn {
@@ -411,6 +517,17 @@
             text-decoration: none;
         }
 
+        @media (max-width: 640px) {
+            .viewer-btn {
+                font-size: 1rem;
+            }
+
+            /* Hide download button label text on mobile, keep icon */
+            .viewer-btn span {
+                display: none;
+            }
+        }
+
         .viewer-btn:hover {
             color: var(--accent, #00f2ff);
         }
@@ -419,6 +536,13 @@
             font-family: 'Fira Code', monospace;
             font-size: 0.9rem;
             opacity: 0.8;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 640px) {
+            .page-indicator {
+                font-size: 0.75rem;
+            }
         }
 
         .viewer-body {
@@ -426,9 +550,24 @@
             position: relative;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             overflow: auto;
-            padding: 20px;
+            -webkit-overflow-scrolling: touch;
+            padding: 12px 8px;
+        }
+
+        @media (min-width: 641px) {
+            .viewer-body {
+                padding: 20px 16px;
+                align-items: center;
+            }
+        }
+
+        /* Extra bottom padding on mobile so fixed flip buttons don't overlap PDF */
+        @media (max-width: 640px) {
+            .viewer-body {
+                padding-bottom: 80px;
+            }
         }
 
         /* Canvas container gives the "paper" look */
@@ -436,8 +575,16 @@
             position: relative;
             box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
             background: white;
-            /* Ensures transparent PDFs have a white background */
             transition: transform 0.2s ease;
+            max-width: 100%;
+            overflow: visible;
+        }
+
+        /* Make the PDF canvas scale to fit on small screens */
+        .canvas-container canvas {
+            display: block;
+            max-width: 100%;
+            height: auto !important;
         }
 
         /* Navigation Flip Buttons */
@@ -476,42 +623,35 @@
             box-shadow: none;
         }
 
-        .flip-left {
-            left: 40px;
-        }
+        .flip-left  { left: 40px; }
+        .flip-right { right: 40px; }
 
-        .flip-right {
-            right: 40px;
-        }
-
-        @media (max-width: 768px) {
+        /* Mobile: move flip buttons to fixed bottom corners */
+        @media (max-width: 640px) {
             .flip-btn {
-                width: 40px;
-                height: 40px;
+                position: fixed;
+                top: auto;
+                bottom: 20px;
+                transform: none;
+                width: 44px;
+                height: 44px;
                 font-size: 1rem;
             }
 
-            .flip-left {
-                left: 10px;
+            .flip-left  { left: 16px; }
+            .flip-right { right: 16px; }
+        }
+
+        /* Tablet: smaller buttons, tighter to edges */
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .flip-btn {
+                width: 46px;
+                height: 46px;
+                font-size: 1.2rem;
             }
 
-            .flip-right {
-                right: 10px;
-            }
-
-            .viewer-toolbar {
-                padding: 0 1rem;
-            }
-
-            .viewer-controls {
-                gap: 10px;
-            }
-
-            .viewer-btn span {
-                display: none;
-            }
-
-            /* hide text on mobile */
+            .flip-left  { left: 16px; }
+            .flip-right { right: 16px; }
         }
     </style>
 </head>
@@ -578,6 +718,7 @@
         </div>
 
     </div>
+
     <div id="resumeModal" class="resume-viewer-modal">
         <div class="viewer-toolbar">
             <div class="viewer-title"><i class="fas fa-book-open"></i> Resume Viewer</div>
@@ -673,9 +814,20 @@
             pageNum = 1,
             pageRendering = false,
             pageNumPending = null,
-            scale = 1.0, // Default zoom level
+            scale = 1.0,
             canvas = document.getElementById('pdfCanvas'),
             ctx = canvas.getContext('2d');
+
+        /**
+         * Compute an auto-scale so the PDF fits the viewer body width on small screens.
+         */
+        function getAutoScale() {
+            const viewerBody = document.querySelector('.viewer-body');
+            if (!viewerBody || !pdfDoc) return 1.0;
+            // Available width minus flip button space and padding
+            const availableWidth = viewerBody.clientWidth - 120;
+            return Math.max(0.4, Math.min(availableWidth / 612, 1.5)); // 612 = standard PDF pt width
+        }
 
         /**
          * Get page info from document, resize canvas accordingly, and render page.
@@ -683,24 +835,20 @@
         function renderPage(num) {
             pageRendering = true;
 
-            // Fetch page
             pdfDoc.getPage(num).then(function (page) {
                 const viewport = page.getViewport({ scale: scale });
                 canvas.height = viewport.height;
                 canvas.width = viewport.width;
 
-                // Render PDF page into canvas context
                 const renderContext = {
                     canvasContext: ctx,
                     viewport: viewport
                 };
                 const renderTask = page.render(renderContext);
 
-                // Wait for render to finish
                 renderTask.promise.then(function () {
                     pageRendering = false;
                     if (pageNumPending !== null) {
-                        // New page rendering is pending
                         renderPage(pageNumPending);
                         pageNumPending = null;
                     }
@@ -713,10 +861,6 @@
             document.getElementById('nextBtn').disabled = num >= pdfDoc.numPages;
         }
 
-        /**
-         * If another page rendering in progress, waits until the rendering is
-         * finished. Otherwise, executes rendering immediately.
-         */
         function queueRenderPage(num) {
             if (pageRendering) {
                 pageNumPending = num;
@@ -743,7 +887,7 @@
         }
 
         function zoomOut() {
-            if (scale <= 0.6) return; // Prevent zooming out too far
+            if (scale <= 0.4) return;
             scale -= 0.2;
             queueRenderPage(pageNum);
         }
@@ -752,26 +896,29 @@
         function openResume() {
             const modal = document.getElementById('resumeModal');
             modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden'; // Stop background scrolling
+            document.body.style.overflow = 'hidden';
 
             setTimeout(() => {
                 modal.classList.add('active');
             }, 10);
 
-            // Load the PDF if it hasn't been loaded yet
             if (!pdfDoc) {
                 pdfjsLib.getDocument(url).promise.then(function (pdfDoc_) {
                     pdfDoc = pdfDoc_;
                     document.getElementById('pageCount').textContent = pdfDoc.numPages;
 
-                    // Initial rendering
+                    // Auto-scale for device width on first open
+                    scale = getAutoScale();
                     renderPage(pageNum);
                 }).catch(function (error) {
                     console.error("Error loading PDF: ", error);
-                    // Fallback: If local testing causes CORS error, alert the user.
                     ctx.font = "16px Inter";
                     ctx.fillText("Error loading PDF. Please ensure the file exists and is running on a server.", 20, 50);
                 });
+            } else {
+                // Re-check scale in case orientation changed
+                scale = getAutoScale();
+                queueRenderPage(pageNum);
             }
         }
 
@@ -781,16 +928,25 @@
             setTimeout(() => {
                 modal.style.display = 'none';
             }, 300);
-            document.body.style.overflow = 'auto'; // Restore scrolling
+            document.body.style.overflow = 'auto';
         }
 
-        // Listen for keyboard arrows to flip pages or escape to close
+        // Keyboard navigation
         document.addEventListener('keydown', function (event) {
             const modal = document.getElementById('resumeModal');
             if (modal.classList.contains('active')) {
                 if (event.key === "ArrowRight") onNextPage();
-                if (event.key === "ArrowLeft") onPrevPage();
-                if (event.key === "Escape") closeResume();
+                if (event.key === "ArrowLeft")  onPrevPage();
+                if (event.key === "Escape")     closeResume();
+            }
+        });
+
+        // Re-render on orientation/resize so PDF stays fitted
+        window.addEventListener('resize', function () {
+            const modal = document.getElementById('resumeModal');
+            if (pdfDoc && modal.classList.contains('active')) {
+                scale = getAutoScale();
+                queueRenderPage(pageNum);
             }
         });
     </script>
