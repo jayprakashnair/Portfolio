@@ -853,7 +853,7 @@
             if (!viewerBody || !pdfDoc) return 1.0;
             // Available width minus flip button space and padding
             const availableWidth = viewerBody.clientWidth - 120;
-            return Math.max(0.4, Math.min(availableWidth / 612, 1.5)); // 612 = standard PDF pt width
+            return Math.max(0.4, Math.min(availableWidth / 612, 1.0)); // 612 = standard PDF pt width
         }
 
         /**
