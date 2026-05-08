@@ -472,7 +472,7 @@
                 <h2 class="section-title">Library</h2>
             </div>
 
-            <h3
+            <!-- <h3
                 style="color:var(--text-secondary); margin: 2rem 0 1rem 0; font-family:'Rajdhani'; text-transform:uppercase; letter-spacing:1px; font-size:0.9rem; padding-left: 5px;">
                 <i class="fas fa-hourglass-half"></i> Upcoming Release
             </h3>
@@ -514,7 +514,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <h3
                 style="color:var(--text-secondary); margin: 0 0 1rem 0; font-family:'Rajdhani'; text-transform:uppercase; letter-spacing:1px; font-size:0.9rem; padding-left: 5px;">
@@ -522,6 +522,45 @@
             </h3>
 
             <div class="glass-card">
+
+                <!-- ── NEW PAPER (EvoStar 2026) — added as first published entry ── -->
+                <div class="pub-card" id="paper3-card">
+                    <div class="book-visual"
+                        onclick="openReader('RL-Inspired Adaptive Algorithm Switching', '../assets/pdfs/paper3.pdf')">
+                        <div class="book-cover" style="background: linear-gradient(135deg, #005c97, #363795);">
+                            <img src="../assets/pics/logos/springer.jpeg" alt="Springer" style="height:60px;">
+                        </div>
+                    </div>
+
+                    <div class="pub-content">
+                        <h3 class="pub-title">A Reinforcement Learning–Inspired Latent Yield-Based Adaptive Algorithm
+                            Switching Mechanism</h3>
+                        <div class="pub-meta">
+                            <span>J.S. Nair, J. Mathew, S.B. Nair</span> |
+                            <span>2026</span> |
+                            <span>EvoApplications (EvoStar) — Springer LNCS (CORE-Ranked)</span>
+                        </div>
+                        <div class="pub-abstract">
+                            This paper proposes a novel reinforcement learning–inspired latent yield mechanism for
+                            adaptive online algorithm switching in dynamic environments, remaining robust to variations
+                            in problem instances. Using island-model based parallel exploration, the approach
+                            demonstrates effective performance on sorting and robotic tasks.
+                        </div>
+                        <div style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap;">
+                            <button
+                                onclick="openReader('RL-Inspired Adaptive Algorithm Switching', '../assets/pdfs/paper3.pdf')"
+                                class="tag highlight" style="border:none; cursor:pointer;">
+                                <i class="fas fa-book-reader"></i> Read Paper
+                            </button>
+                            <!-- <button onclick="playVideo('paper3')" class="tag" style="border:none; cursor:pointer;">
+                                <i class="fab fa-youtube"></i> Video
+                            </button> -->
+                            <a href="https://doi.org/10.1007/978-3-032-23604-3_8" target="_blank" class="tag">DOI</a>
+                        </div>
+                    </div>
+                </div>
+
+                <hr style="border:0; border-top:1px solid rgba(0,0,0,0.1); margin:0;">
 
                 <div class="pub-card" id="paper1-card">
                     <div class="book-visual" onclick="openReader('Decentralizing FRL', '../assets/pdfs/paper1.pdf')">
@@ -560,7 +599,7 @@
 
                 <hr style="border:0; border-top:1px solid rgba(0,0,0,0.1); margin:0;">
 
-                <div class="pub-card" id="paper2-card">
+                <div class="pub-card" id="paper3-card">
                     <div class="book-visual" onclick="openReader('HyFRL Approach', '../assets/pdfs/paper2.pdf')">
                         <div class="book-cover" style="background: linear-gradient(135deg, #141E30, #243B55);">
                             <img src="../assets/pics/logos/springer.jpeg" alt="springer" style="height:60px;">
@@ -652,11 +691,19 @@
         // CONFIGURATION: VIDEO DATABASE
         // ==========================================
         const videoDatabase = {
+            'paper3': {
+                title: 'RL-Inspired Adaptive Algorithm Switching — Video Abstract',
+                url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+            },
             'paper1': {
-                title: 'Decentralizing FRL - Video Abstract',
+                title: 'EVOSTAR-EVORL',
                 url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
             },
             'paper2': {
+                title: 'Decentralizing FRL - Video Abstract',
+                url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+            },
+            'paper3': {
                 title: 'HyFRL Approach - Video Abstract',
                 url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
             }
